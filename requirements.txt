@@ -1,0 +1,20 @@
+# GENESIS - Sistema de Análise de Grupos Econômicos
+# Receita Estadual de Santa Catarina
+# Dependências Python
+
+# Framework Web
+streamlit>=2.0.0
+
+# Manipulação de Dados
+pandas>=1.3.0
+numpy>=1.21.0
+
+# Visualização
+plotly>=5.0.0
+
+# Banco de Dados
+sqlalchemy>=1.4.0
+impyla>=0.17.0
+
+# Utilitários
+python-dateutil>=2.8.0
