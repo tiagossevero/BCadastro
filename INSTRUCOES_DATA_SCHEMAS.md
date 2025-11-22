@@ -38,40 +38,26 @@ O script `gerar_data_schemas.py` executa automaticamente:
 
 ## 🚀 Como executar
 
-### Opção 1: Via PySpark (Recomendado)
+### Opção 1: Notebook Completo (Recomendado)
 
-```bash
-# Executar o script PySpark
-spark-submit gerar_data_schemas.py
-```
+1. Abra `gerar_data_schemas.ipynb` no Jupyter
+2. Execute todas as células em sequência (Run All)
+3. Acompanhe o progresso com mensagens detalhadas
+4. O notebook está organizado em seções:
+   - Configuração Inicial
+   - Funções Auxiliares
+   - Processamento das Tabelas
+   - Geração do Índice
+   - Resumo Final
 
-### Opção 2: Via pyspark shell
+### Opção 2: Notebook Simplificado
 
-```bash
-# Abrir shell PySpark
-pyspark
+1. Abra `gerar_schemas_simples.ipynb` no Jupyter
+2. Execute todas as células em sequência
+3. Versão mais direta, ideal para uso rápido
+4. Menos células, mesmo resultado
 
-# Dentro do shell, executar:
-exec(open('gerar_data_schemas.py').read())
-```
-
-### Opção 3: Via Jupyter Notebook
-
-Se você estiver usando o ambiente do notebook `BCADASTRO-Exemplo.ipynb`:
-
-```python
-# Em uma célula do notebook, executar:
-%run gerar_data_schemas.py
-```
-
-### Opção 4: Integrar ao notebook existente
-
-Adicione uma nova célula no final do notebook `BCADASTRO-Exemplo.ipynb`:
-
-```python
-# Execute o gerador de data schemas
-exec(open('gerar_data_schemas.py').read())
-```
+**⚠️ Importante:** Os notebooks já incluem a correção para o problema de conflito entre `sum()` do Python e `pyspark.sql.functions.sum()` usando `builtins.sum()`.
 
 ---
 

@@ -18,8 +18,8 @@ Gerar automaticamente para **12 tabelas**:
 
 | Arquivo | Descrição | Uso |
 |---------|-----------|-----|
-| **`gerar_data_schemas.py`** | Script principal PySpark completo | `spark-submit gerar_data_schemas.py` |
-| **`gerar_schemas_notebook.py`** | Versão simplificada para Jupyter | `%run gerar_schemas_notebook.py` |
+| **`gerar_data_schemas.ipynb`** | Notebook principal completo | Abrir no Jupyter e executar todas as células |
+| **`gerar_schemas_simples.ipynb`** | Notebook simplificado para uso rápido | Abrir no Jupyter e executar células |
 | **`queries_exemplo.sql`** | Queries SQL individuais para teste | Copiar e colar no Impala/PySpark |
 | **`validar_schemas.sh`** | Script de validação dos outputs | `./validar_schemas.sh` |
 | **`INSTRUCOES_DATA_SCHEMAS.md`** | Documentação completa e detalhada | Leitura completa |
@@ -30,23 +30,17 @@ Gerar automaticamente para **12 tabelas**:
 
 ## ⚡ Como Usar (Quick Start)
 
-### 1️⃣ Escolha um método de execução:
+### 1️⃣ Abra o notebook no Jupyter:
 
-#### Método A: Script standalone (Recomendado)
-```bash
-spark-submit gerar_data_schemas.py
-```
+#### Método A: Notebook completo (Recomendado)
+- Abra `gerar_data_schemas.ipynb` no Jupyter
+- Execute todas as células em sequência
+- Acompanhe o progresso com mensagens detalhadas
 
-#### Método B: No Jupyter Notebook
-Adicione uma célula no `BCADASTRO-Exemplo.ipynb`:
-```python
-%run gerar_schemas_notebook.py
-```
-
-#### Método C: PySpark shell
-```python
-exec(open('gerar_schemas_notebook.py').read())
-```
+#### Método B: Notebook simplificado
+- Abra `gerar_schemas_simples.ipynb` no Jupyter
+- Execute todas as células em sequência
+- Versão mais direta e rápida
 
 ### 2️⃣ Valide os resultados:
 ```bash
@@ -207,14 +201,14 @@ Cada schema em JSON contém:
 
 ### Personalização
 
-Edite os scripts para:
+Edite os notebooks para personalizar:
 
-| Configuração | Arquivo | Linha | Padrão |
-|--------------|---------|-------|--------|
-| Database | `gerar_data_schemas.py` | 12 | `gessimples` |
-| Limite de linhas | `gerar_data_schemas.py` | 62 | `LIMIT 10` |
-| Diretório de output | `gerar_data_schemas.py` | 36 | `data-schemas` |
-| Lista de tabelas | `gerar_data_schemas.py` | 15-34 | 12 tabelas |
+| Configuração | Notebook | Célula | Padrão |
+|--------------|----------|--------|--------|
+| Database | `gerar_data_schemas.ipynb` | Configuração | `gessimples` |
+| Limite de linhas | `gerar_data_schemas.ipynb` | Função executar_select_sample | `LIMIT 10` |
+| Diretório de output | `gerar_data_schemas.ipynb` | Configuração | `data-schemas` |
+| Lista de tabelas | `gerar_data_schemas.ipynb` | Configuração | 12 tabelas |
 
 ---
 

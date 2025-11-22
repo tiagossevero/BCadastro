@@ -8,25 +8,17 @@ Gerar automaticamente **DESCRIBE FORMATTED** e **SELECT LIMIT 10** para **12 tab
 
 ## ⚡ Execução Rápida
 
-### Opção 1: Script Python completo (Recomendado)
+### Opção 1: Notebook Completo (Recomendado)
 
-```bash
-spark-submit gerar_data_schemas.py
-```
+- Abra `gerar_data_schemas.ipynb` no Jupyter
+- Execute todas as células em sequência
+- Acompanhe o progresso detalhado
 
-### Opção 2: No Jupyter Notebook
+### Opção 2: Notebook Simplificado
 
-Adicione uma nova célula no `BCADASTRO-Exemplo.ipynb`:
-
-```python
-%run gerar_schemas_notebook.py
-```
-
-### Opção 3: Diretamente no PySpark shell
-
-```python
-exec(open('gerar_schemas_notebook.py').read())
-```
+- Abra `gerar_schemas_simples.ipynb` no Jupyter
+- Execute todas as células em sequência
+- Versão mais direta e rápida
 
 ---
 
