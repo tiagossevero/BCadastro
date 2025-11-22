@@ -9,8 +9,8 @@
 
   Quero...                              │ Usar arquivo...
   ──────────────────────────────────────┼───────────────────────────────────
-  🚀 Gerar schemas automaticamente      │ gerar_data_schemas.py
-  📓 Gerar schemas no Jupyter Notebook  │ gerar_schemas_notebook.py
+  🚀 Gerar schemas (completo)           │ gerar_data_schemas.ipynb
+  📓 Gerar schemas (simplificado)       │ gerar_schemas_simples.ipynb
   🧪 Testar queries manualmente         │ queries_exemplo.sql
   ✅ Validar se tudo foi gerado         │ validar_schemas.sh
   📖 Ler documentação completa          │ INSTRUCOES_DATA_SCHEMAS.md
@@ -25,8 +25,8 @@
 
   Tipo          │ Arquivo                         │ Tamanho │ Descrição
   ──────────────┼─────────────────────────────────┼─────────┼──────────────────
-  🐍 Python     │ gerar_data_schemas.py           │  10 KB  │ Script principal
-  🐍 Python     │ gerar_schemas_notebook.py       │  7.8 KB │ Versão Jupyter
+  📓 Notebook   │ gerar_data_schemas.ipynb        │   ~KB   │ Notebook completo
+  📓 Notebook   │ gerar_schemas_simples.ipynb     │   ~KB   │ Notebook simples
   💾 SQL        │ queries_exemplo.sql             │  4.8 KB │ Queries manuais
   🔧 Shell      │ validar_schemas.sh              │  9.0 KB │ Validação
   📄 Markdown   │ INSTRUCOES_DATA_SCHEMAS.md      │  6.9 KB │ Doc completa
@@ -38,13 +38,16 @@
 │ ⚡ QUICK START                                                              │
 └─────────────────────────────────────────────────────────────────────────────┘
 
-  1. Executar o gerador:
-     $ spark-submit gerar_data_schemas.py
+  1. Abrir notebook no Jupyter:
+     - gerar_data_schemas.ipynb (completo) OU
+     - gerar_schemas_simples.ipynb (rápido)
 
-  2. Validar resultados:
+  2. Executar todas as células (Run All)
+
+  3. Validar resultados:
      $ ./validar_schemas.sh
 
-  3. Ver documentação gerada:
+  4. Ver documentação gerada:
      $ cat data-schemas/README.md
 
 
@@ -91,19 +94,18 @@
 │ 🔍 EXEMPLOS DE USO                                                          │
 └─────────────────────────────────────────────────────────────────────────────┘
 
-  # Via spark-submit (recomendado)
-  $ spark-submit gerar_data_schemas.py
+  # 1. Abrir notebook no Jupyter
+  jupyter notebook gerar_data_schemas.ipynb
+  # OU
+  jupyter notebook gerar_schemas_simples.ipynb
 
-  # Via Jupyter Notebook
-  %run gerar_schemas_notebook.py
+  # 2. Executar todas as células
+  # No menu: Cell > Run All
 
-  # Via PySpark shell
-  exec(open('gerar_schemas_notebook.py').read())
-
-  # Testar query individual
+  # 3. Testar query individual (numa célula)
   spark.sql("DESCRIBE FORMATTED gessimples.bcadastro_base_cnpj_completo").show()
 
-  # Validar resultados
+  # 4. Validar resultados
   $ ./validar_schemas.sh
 
 

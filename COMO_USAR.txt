@@ -1,0 +1,317 @@
+================================================================================
+  📚 COMO USAR O GERADOR DE DATA SCHEMAS
+  Guia Visual Rápido - 3 Passos
+================================================================================
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ 📋 RESUMO                                                                   │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+  Sistema para gerar automaticamente a documentação de schemas de 12 tabelas
+  do BCadastro usando Jupyter Notebooks.
+
+  ✅ Corrige automaticamente o problema de conflito sum() do PySpark
+  ✅ Gera 25 arquivos (1 README + 12 MD + 12 JSON)
+  ✅ Organiza em diretórios originais/ e intermediarias/
+
+
+================================================================================
+  🚀 PASSO 1: ABRIR NOTEBOOK NO JUPYTER
+================================================================================
+
+  Escolha UMA das opções abaixo:
+
+  ┌───────────────────────────────────────────────────────────────────────────┐
+  │ OPÇÃO A: Notebook Completo (Recomendado)                                 │
+  └───────────────────────────────────────────────────────────────────────────┘
+
+    jupyter notebook gerar_data_schemas.ipynb
+
+    OU abra direto no JupyterLab/Jupyter Notebook
+
+    Características:
+    ✅ Células organizadas por seção
+    ✅ Markdown explicativo
+    ✅ Progresso detalhado
+    ✅ Ideal para entender o processo
+
+
+  ┌───────────────────────────────────────────────────────────────────────────┐
+  │ OPÇÃO B: Notebook Simplificado (Mais Rápido)                             │
+  └───────────────────────────────────────────────────────────────────────────┘
+
+    jupyter notebook gerar_schemas_simples.ipynb
+
+    OU abra direto no JupyterLab/Jupyter Notebook
+
+    Características:
+    ✅ Menos células
+    ✅ Execução mais rápida
+    ✅ Mesmo resultado
+    ✅ Ideal para uso rotineiro
+
+
+================================================================================
+  ▶️ PASSO 2: EXECUTAR TODAS AS CÉLULAS
+================================================================================
+
+  No Jupyter Notebook/Lab:
+
+    ┌─────────────────────────────────────────┐
+    │  Menu > Cell > Run All                  │
+    └─────────────────────────────────────────┘
+
+  OU execute célula por célula (Shift + Enter)
+
+
+  ⏱️  Tempo estimado: 5-10 minutos (depende do tamanho das tabelas)
+
+
+  📊 Você verá mensagens como:
+
+    ================================================================================
+    🚀 GERADOR DE DATA SCHEMAS - BCadastro
+    ================================================================================
+    Database: gessimples
+    Total de tabelas: 12
+    Output: data-schemas/
+    ================================================================================
+
+    📦 PROCESSANDO TABELAS ORIGINAIS
+    --------------------------------------------------------------------------------
+    📋 Processando: gessimples.bcadastro_base_cnpj_completo
+      ▶ Executando DESCRIBE FORMATTED...
+      ▶ Executando SELECT... LIMIT 10
+      ✅ Schema gerado: data-schemas/originais/bcadastro_base_cnpj_completo.md
+    ...
+
+
+================================================================================
+  ✅ PASSO 3: VALIDAR OS RESULTADOS
+================================================================================
+
+  No terminal, execute:
+
+    ./validar_schemas.sh
+
+  Ou se não tiver permissão:
+
+    bash validar_schemas.sh
+
+
+  📊 Saída esperada:
+
+    ================================================================================
+    🔍 VALIDAÇÃO DE DATA SCHEMAS - BCadastro
+    ================================================================================
+
+    📁 Verificando estrutura de diretórios...
+    ✅ Diretório data-schemas encontrado
+    ✅ Diretório originais/ encontrado
+    ✅ Diretório intermediarias/ encontrado
+
+    📝 Verificando arquivos Markdown (.md)...
+    Tabelas Originais: 6/6
+    Tabelas Intermediárias: 6/6
+    Total: 12/12
+    ✅ Todos os arquivos Markdown foram gerados!
+
+    📦 Verificando arquivos JSON (.json)...
+    ✅ Todos os arquivos JSON foram gerados!
+
+    📄 Verificando README.md...
+    ✅ README.md encontrado
+
+    ================================================================================
+    ✅ VALIDAÇÃO COMPLETA - Todos os data-schemas foram gerados com sucesso!
+    ================================================================================
+
+
+================================================================================
+  📂 ESTRUTURA GERADA
+================================================================================
+
+  Após a execução, você terá:
+
+  data-schemas/
+  ├── README.md                                    ← Índice geral
+  ├── originais/
+  │   ├── bcadastro_base_cnpj_completo.md
+  │   ├── bcadastro_base_cnpj_completo.json
+  │   ├── bcadastro_base_socios_consolidado.md
+  │   ├── bcadastro_base_socios_consolidado.json
+  │   ├── bcadastro_pgdas_consolidado.md
+  │   ├── bcadastro_pgdas_consolidado.json
+  │   ├── bcadastro_tab_raiz_cpf_pai.md
+  │   ├── bcadastro_tab_raiz_cpf_pai.json
+  │   ├── feitoza_base_periodos_sn.md
+  │   ├── feitoza_base_periodos_sn.json
+  │   ├── feitoza_rba_12_meses.md
+  │   └── feitoza_rba_12_meses.json
+  └── intermediarias/
+      ├── bcadastro_output_final_acl.md
+      ├── bcadastro_output_final_acl.json
+      ├── feitoza_grupos_identificados.md
+      ├── feitoza_grupos_identificados.json
+      ├── feitoza_rba_grupo.md
+      ├── feitoza_rba_grupo.json
+      ├── feitoza_fato_gerador.md
+      ├── feitoza_fato_gerador.json
+      ├── feitoza_resumo_grupos_irregulares.md
+      ├── feitoza_resumo_grupos_irregulares.json
+      ├── feitoza_lista_acao_fiscal.md
+      └── feitoza_lista_acao_fiscal.json
+
+  TOTAL: 25 arquivos
+
+
+================================================================================
+  📖 REVISAR DOCUMENTAÇÃO
+================================================================================
+
+  Ver índice geral:
+    cat data-schemas/README.md
+
+  Ver schema de uma tabela específica:
+    cat data-schemas/originais/bcadastro_base_cnpj_completo.md
+
+  Listar todos os arquivos gerados:
+    ls -lh data-schemas/
+
+
+================================================================================
+  🔧 PERSONALIZAR (Opcional)
+================================================================================
+
+  Para alterar configurações, edite o notebook e modifique:
+
+  ┌───────────────────────────┬──────────────────────────────────────────────┐
+  │ O que alterar             │ Onde (célula de Configuração)                │
+  ├───────────────────────────┼──────────────────────────────────────────────┤
+  │ Database                  │ DATABASE = "gessimples"                      │
+  │ Diretório de saída        │ OUTPUT_DIR = "data-schemas"                  │
+  │ Quantidade de linhas      │ LIMIT 10  (na função executar_select_sample) │
+  │ Adicionar/remover tabelas │ TABELAS_ORIGINAIS / TABELAS_INTERMEDIARIAS   │
+  └───────────────────────────┴──────────────────────────────────────────────┘
+
+
+================================================================================
+  ⚠️ IMPORTANTE: PROBLEMA DO sum() RESOLVIDO
+================================================================================
+
+  Os notebooks JÁ incluem a correção para o problema de conflito entre
+  sum() do Python e sum() do PySpark.
+
+  ✅ O que foi feito:
+    - import builtins
+    - Uso de builtins.sum() em todos os cálculos
+
+  📖 Para entender o problema:
+    cat NOTAS_TECNICAS.md
+
+
+================================================================================
+  🐛 PROBLEMAS COMUNS
+================================================================================
+
+  ❌ Erro: "Table not found"
+  ✅ Solução: Verifique se a tabela existe no banco
+
+     spark.sql("SHOW TABLES IN gessimples LIKE 'bcadastro*'").show()
+
+
+  ❌ Erro: "Permission denied"
+  ✅ Solução: Verifique permissões de acesso
+
+     spark.sql("SELECT COUNT(*) FROM gessimples.bcadastro_base_cnpj_completo").show()
+
+
+  ❌ Erro: PySparkTypeError com sum()
+  ✅ Solução: Já resolvido nos notebooks! Usa builtins.sum()
+
+
+  ❌ Jupyter não abre
+  ✅ Solução: Instale o Jupyter
+
+     pip install jupyter
+     jupyter notebook
+
+
+================================================================================
+  📚 DOCUMENTAÇÃO DISPONÍVEL
+================================================================================
+
+  Qual arquivo ler?
+
+  ┌─────────────────────────────────┬────────────────────────────────────────┐
+  │ Preciso de...                   │ Ler arquivo...                         │
+  ├─────────────────────────────────┼────────────────────────────────────────┤
+  │ Visão geral do sistema          │ README_SCHEMAS.md                      │
+  │ Referência rápida               │ GUIA_RAPIDO.md                         │
+  │ Tutorial completo               │ INSTRUCOES_DATA_SCHEMAS.md             │
+  │ Entender problema sum()         │ NOTAS_TECNICAS.md                      │
+  │ Ver todos os passos             │ RESUMO_IMPLEMENTACAO.md                │
+  │ Este guia visual                │ COMO_USAR.txt (você está aqui!)        │
+  │ Índice visual                   │ INDICE_SCHEMAS.txt                     │
+  │ Testar queries manualmente      │ queries_exemplo.sql                    │
+  └─────────────────────────────────┴────────────────────────────────────────┘
+
+
+================================================================================
+  ✅ CHECKLIST
+================================================================================
+
+  Antes de executar:
+    ☐ Jupyter Notebook instalado
+    ☐ PySpark configurado
+    ☐ Acesso ao banco gessimples
+    ☐ Permissões de leitura nas tabelas
+
+  Durante a execução:
+    ☐ Notebook aberto (gerar_data_schemas.ipynb OU gerar_schemas_simples.ipynb)
+    ☐ Células executadas (Run All)
+    ☐ Sem erros nas células
+
+  Após a execução:
+    ☐ 25 arquivos gerados em data-schemas/
+    ☐ Validação executada (./validar_schemas.sh)
+    ☐ Validação OK (sem erros)
+    ☐ README.md revisado
+    ☐ Schemas revisados manualmente
+
+  Finalização:
+    ☐ git add data-schemas/
+    ☐ git commit -m "docs: adiciona data-schemas das tabelas"
+    ☐ git push
+
+
+================================================================================
+  🎯 RESUMO DOS 3 PASSOS
+================================================================================
+
+  1️⃣  Abrir notebook:     jupyter notebook gerar_data_schemas.ipynb
+  2️⃣  Executar células:   Cell > Run All
+  3️⃣  Validar:            ./validar_schemas.sh
+
+  PRONTO! ✅
+
+
+================================================================================
+  📞 PRECISA DE AJUDA?
+================================================================================
+
+  1. Leia a documentação relevante (veja tabela acima)
+  2. Verifique os logs de erro nas células do notebook
+  3. Teste queries individuais com queries_exemplo.sql
+  4. Execute validação para identificar problemas
+
+
+================================================================================
+
+  Database: gessimples (Apache Impala)
+  Tabelas: 12 (6 originais + 6 intermediárias)
+  Output: 25 arquivos (1 README + 12 MD + 12 JSON)
+  Versão: 1.0
+  Data: 2025-11-17
+
+================================================================================
